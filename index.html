@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://miro.com/app/static/styles.1.0.css"/>
+    </head>  
+  <body>
+    <label class="miro-checkbox">
+        <input id="ckb" type="checkbox">
+        <span>Agree with Developer Terms</span>
+    </label>
+    
+    <p>
+      <a id="lnk" href="https://miro.com/app/dashboard/?createDevTeam=1" target="_black">
+        <button id="btn" class="miro-btn miro-btn--primary miro-btn--medium" disabled>Get Dev Team to Create an App</button>
+      </a>
+    </p>
+    
+    <script>
+      var ckb = document.querySelector('#ckb')
+      var btn = document.querySelector('#btn')
+      var lnk = document.querySelector('#lnk')
+      
+      ckb.addEventListener('change', function() {
+        if(ckb.checked) {
+          btn.removeAttribute('disabled')
+        }else{
+          btn.setAttribute('disabled', 'disabled')
+        }
+      })
+      
+      lnk.addEventListener('click', function onLinkClick(e) {
+        if(!ckb.checked) {
+          e.preventDefault()
+        }
+      }) 
+    </script>
+  </body>
+</html>
